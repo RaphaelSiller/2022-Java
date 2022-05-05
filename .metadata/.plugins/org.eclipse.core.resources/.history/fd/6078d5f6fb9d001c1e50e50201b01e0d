@@ -1,0 +1,126 @@
+
+public class Kreis {
+	double radius, umfang, flaeche;
+
+	/**
+	 * Erstellt ein Duplikat des Kreises auf den die Methode aufgerufen wird. Das
+	 * Duplikat vom Typ Kreis wird zurück geliefert
+	 * 
+	 * @return das Duplikat des Kreises
+	 */
+	public Kreis clone() {
+		Kreis ret = new Kreis();
+		ret.setFlaeche(this.getFlaeche());
+		ret.setRadius(this.getRadius());
+		ret.setUmfang(this.getUmfang());
+		return ret;
+	}
+
+	/**
+	 * Kontrolliert, ob er Kreis kleiner als das übergebene Kreisobjekt k ist (Rückgabewert = -1), 
+	 * größer (Rückgabewert = 1) oder gleich dem übergebenen Kreisobjekt k ist (Rückgabewert = 0)
+	 * @param k - das zu vergleichende Objekt
+	 * @return -1 falls das Objekt kleiner als das übergebene Objekt k ist
+	 *  		0 falls das Objekt gleich dem übergebenen Objekt k ist
+	 *  		1 falls das Objekt größer als das übergebene Objekt k ist
+	 */
+	public int compareTo(Kreis k) {
+		int ret;
+		if (k.getRadius() < this.getRadius())
+			ret = -1;
+		if (k.getRadius() == this.getRadius())
+			ret = 0;
+		if (k.getRadius() > this.getRadius())
+			ret = 1;
+		return ret;
+	}
+	/**
+	 * Kontrolliert ob der Kreis denselben Radius hat wie jener Kreis, welcher der Methode übergeben wird
+	 * @param k - das zu vergleichende Objekt
+	 * @return true, falls der Kreis und das übergebene Kreisobjekt denselben Radius haben
+	 */
+	public boolean equals(Kreis k) {
+		boolean ret = false;
+		if (k.getRadius() == this.getRadius())
+			ret = true;
+		return ret;
+	}
+	
+	/**
+	 * Liefert die Fläche des Kreises zurück
+	 * 
+	 * @return die Fläche des Kreises
+	 */
+	public double getFlaeche() {
+		return flaeche;
+	}
+
+	/**
+	 * Liefert den Radius des Kreises zurück
+	 * 
+	 * @return den Radius des Kreises
+	 */
+	public double getRadius() {
+		return radius;
+	}
+
+	/**
+	 * Liefert den Umfang des Kreises zurück
+	 * 
+	 * @return den Umfang des Kreises
+	 */
+	public double getUmfang() {
+		return umfang;
+	}
+
+	/**
+	 * Setzt die Fläche des Kreises. Die übergebene Fläche darf nicht 0 sein. Die
+	 * Methode errechnet sich aus der Fläche den Radius und setzt diesen
+	 * 
+	 * @param flaeche
+	 *            - die zu setzende Fläche
+	 */
+	public void setFlaeche(double flaeche) {
+		if (flaeche != 0) {
+			this.flaeche = flaeche;
+			this.setRadius(Math.sqrt(flaeche / Math.PI));
+		}
+	}
+
+	/**
+	 * Setzt den Radius. Der Radius wird nur gesetzt, falls der übergebene Parameter
+	 * radius größer oder gleich 0 ist, ansonsten wird der Radius nicht gesetzt und
+	 * der alte Wert des Radiuses beibehalten.
+	 * 
+	 * @param radius,
+	 *            welcher gesetzt werden soll
+	 */
+	public void setRadius(double radius) {
+		if (radius >= 0) {
+			this.radius = radius;
+			this.umfang = 2 * Math.PI * radius;
+			this.flaeche = Math.PI * Math.pow(radius, 2);
+		}
+	}
+
+	/**
+	 * Setzt den Umfang des Kreises. Der übergebene Umfang darf nicht 0 sein. Die
+	 * Methode errechnet sich aus dem Umfang den Radius und setzt diesen
+	 * 
+	 * @param umfang
+	 *            - der zu setzende Umfang
+	 */
+	public void setUmfang(double umfang) {
+		this.umfang = umfang;
+		this.setRadius(umfang / (2 * Math.PI));
+	}
+
+	/**
+	 * Gibt die Stringentsprechung des Kreises zurück.
+	 */
+	public String toString() {
+		String ret = ("r=" + this.getRadius() + ",U=" + this.getUmfang() + ",F=" + this.flaeche);
+		return ret;
+	}
+
+}

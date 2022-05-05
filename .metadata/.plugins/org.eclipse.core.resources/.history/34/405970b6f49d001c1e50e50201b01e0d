@@ -1,0 +1,48 @@
+
+public class Kreis {
+	double radius, umfang, flaeche;
+
+	/**
+	 * @param radius the radius to set
+	 */
+	public void setRadius(float radius) {
+		this.radius = radius;
+		this.umfang = 2 * Math.PI * radius;
+	}
+
+	/**
+	 * @return the radius
+	 */
+	public float getRadius() {
+		return radius;
+	}
+
+	/**
+	 * @param umfang the umfang to set
+	 */
+	public void setUmfang(float umfang) {
+		this.umfang = umfang;
+	}
+
+	/**
+	 * @return the umfang
+	 */
+	public float getUmfang() {
+		return umfang;
+	}
+
+	/**
+	 * @param flaeche the flaeche to set
+	 */
+	public void setFlaeche(float flaeche) {
+		this.flaeche = flaeche;
+	}
+
+	/**
+	 * @return the flaeche
+	 */
+	public float getFlaeche() {
+		return flaeche;
+	}
+	
+}

@@ -1,0 +1,25 @@
+
+public class PersonTest {
+	
+	/**
+	 * Testprogramm fuer die Objektklasse Person
+	 */
+	public static void main(String[] args) {
+		//Erstellt Stammbaum
+		Person AdamAmonn = new Person("Adam", "Amonn", false);
+		Person AnnaSeeber = new Person("Anna", "Seeber", true, AdamAmonn, null);
+		Person RudiAmonn = new Person("Rudi", "Amonn", false, AdamAmonn, null);
+		Person BertaGreif = new Person("Berta", "Greif", true, null, AnnaSeeber);
+		Person HansSeeber = new Person("Hans", "Seeber", false, null, AnnaSeeber);
+		Person ElsaPircher = new Person("Elsa", "Pircher", true, RudiAmonn, null);
+		Person SeppAmonn = new Person("Sepp", "Amonn", false, RudiAmonn, null);
+		Person AnnaHuber = new Person("Anna", "Huber", true, null, BertaGreif);
+		Person EdiGreif = new Person("Edi", "Greif", false, null, BertaGreif);
+		Person ResiRuepel = new Person("Resi", "Ruepel", false, HansSeeber, null);
+		Person MarinSeeber = new Person("Martin", "Seeber", false, HansSeeber, null);
+		Person EddaHuber = new Person("Edda", "Huber", true, null, ElsaPircher);
+		Person ErwinPircher = new Person("Erwin", "Pircher", false, null, ElsaPircher);
+		Person Astrid Prenn
+	}
+
+}

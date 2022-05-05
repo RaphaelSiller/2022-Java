@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename compilation unit &apos;VerschlüsselungDrehen.java&apos; to &apos;VerschluesselungDrehen.java&apos;&#x0D;&#x0A;- Original project: &apos;UE05CharactersAndStrings&apos;&#x0D;&#x0A;- Original element: &apos;VerschlüsselungDrehen.java&apos;&#x0D;&#x0A;- Renamed element: &apos;VerschluesselungDrehen.java&apos;" description="Rename compilation unit &apos;VerschlüsselungDrehen.java&apos;" flags="2" id="org.eclipse.jdt.ui.rename.compilationunit" input="/src&lt;{VerschlüsselungDrehen.java" name="VerschluesselungDrehen.java" references="false" stamp="1637828345976" version="1.0"/>
+</session>

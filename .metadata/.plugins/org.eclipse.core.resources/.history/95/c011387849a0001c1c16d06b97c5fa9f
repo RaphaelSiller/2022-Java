@@ -1,0 +1,92 @@
+
+public class Quadrat {
+	double SeiteA;
+
+	/** 
+	 * Liefert die Länge von SeiteA
+	 * @return seiteA vom Quadrat
+	 */
+	public double getSeiteA() {
+		return SeiteA;
+	}
+
+	/** 
+	 * Setzt die Länge von SeiteA
+	 * @param seiteA - Länge, welche gesetzt werden soll
+	 */
+	public void setSeiteA(double seiteA) {
+		if(SeiteA>0)
+			this.SeiteA = seiteA;
+	}
+	
+	/** 
+	 * Liefert die Länge von SeiteB
+	 * @return SeiteB vom Quadrat
+	 */
+	public double getSeiteB() {
+		return SeiteA;
+	}
+
+	/** 
+	 * Setzt die Länge von SeiteB
+	 * @param seiteB - Länge, welche gesetzt werden soll
+	 */
+	public void setSeiteB(double SeiteB) {
+		if(SeiteB>0)
+			this.SeiteA = SeiteB;
+	}
+	
+	/** 
+	 * Liefert den Umfang des Quadrats
+	 * @return Umfang vom Quadrat
+	 */
+	public double getUmfang() {
+		return SeiteA * 4;
+	}
+
+	/** 
+	 * Setzt den Umfang des Quadrats
+	 * @param Umfang - welcher gesetzt werden soll
+	 */
+	public void setUmfang(double Umfang) {
+		if(Umfang>0)
+			this.SeiteA = Umfang * 0.25;
+	}
+	
+	/** 
+	 * Liefert die Flaeche des Quadrats
+	 * @return Flaeche vom Quadrat
+	 */
+	public double getFlaeche() {
+		return Math.sqrt(SeiteA);
+	}
+
+	/** 
+	 * Setzt die Flaeche des Quadrats
+	 * @param Flaeche - welche gesetzt werden soll
+	 */
+	public void setFlaeche(double Flaeche) {
+		if(Flaeche>0)
+			this.SeiteA = SeiteA*SeiteA;
+	}
+	
+	/**
+	 * Erstellt ein Duplikat des Quadrats auf den die Methode aufgerufen wird. Das
+	 * Duplikat vom Typ Quadrat wird zurück geliefert.
+	 * 
+	 * @return das Duplikat des Quadrats
+	 */
+	public Quadrat clone() {
+		Quadrat ret = new Quadrat();
+		ret.setSeiteA(this.getSeiteA()); 
+		return ret;
+	}
+	
+	public boolean equals(Quadrat q) {
+		boolean ret = false;
+		if (q.getSeiteA() == this.getSeiteA())
+			ret = true;
+		return ret;
+	}
+
+}

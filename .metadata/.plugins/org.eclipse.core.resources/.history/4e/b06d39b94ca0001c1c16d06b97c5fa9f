@@ -1,0 +1,122 @@
+
+public class Quadrat {
+	private double SeiteA;
+
+	/** 
+	 * Liefert die Länge von SeiteA
+	 * @return seiteA vom Quadrat
+	 */
+	public double getSeiteA() {
+		return SeiteA;
+	}
+
+	/** 
+	 * Setzt die Länge von SeiteA
+	 * @param seiteA - Länge, welche gesetzt werden soll
+	 */
+	public void setSeiteA(double seiteA) {
+		if(SeiteA>0)
+			this.SeiteA = seiteA;
+	}
+	
+	/** 
+	 * Liefert die Länge von SeiteB
+	 * @return SeiteB vom Quadrat
+	 */
+	public double getSeiteB() {
+		return SeiteA;
+	}
+
+	/** 
+	 * Setzt die Länge von SeiteB
+	 * @param seiteB - Länge, welche gesetzt werden soll
+	 */
+	public void setSeiteB(double SeiteB) {
+		if(SeiteB>0)
+			this.SeiteA = SeiteB;
+	}
+	
+	/** 
+	 * Liefert den Umfang des Quadrats
+	 * @return Umfang vom Quadrat
+	 */
+	public double getUmfang() {
+		return SeiteA * 4;
+	}
+
+	/** 
+	 * Setzt den Umfang des Quadrats
+	 * @param Umfang - welcher gesetzt werden soll
+	 */
+	public void setUmfang(double Umfang) {
+		if(Umfang>0)
+			this.SeiteA = Umfang * 0.25;
+	}
+	
+	/** 
+	 * Liefert die Flaeche des Quadrats
+	 * @return Flaeche vom Quadrat
+	 */
+	public double getFlaeche() {
+		return Math.sqrt(SeiteA);
+	}
+
+	/** 
+	 * Setzt die Flaeche des Quadrats
+	 * @param Flaeche - welche gesetzt werden soll
+	 */
+	public void setFlaeche(double Flaeche) {
+		if(Flaeche>0)
+			this.SeiteA = SeiteA*SeiteA;
+	}
+	
+	/**
+	 * Erstellt ein Duplikat des Quadrats auf den die Methode aufgerufen wird. Das
+	 * Duplikat vom Typ Quadrat wird zurück geliefert.
+	 * 
+	 * @return das Duplikat des Quadrats
+	 */
+	public Quadrat clone() {
+		Quadrat ret = new Quadrat();
+		ret.setSeiteA(this.getSeiteA()); 
+		return ret;
+	}
+	
+	/**
+	 * Kontrolliert ob Seite A des Quadrats gleich lang wie SeiteA vom Quadrat, welcher der Methode übergeben wird
+	 * @param q
+	 * @return
+	 */
+	public boolean equals(Quadrat q) {
+		boolean ret = false;
+		if (q.getSeiteA() == this.getSeiteA())
+			ret = true;
+		return ret;
+	}
+	
+	/**
+	 * Kontrolliert, ob er Kreis kleiner als das übergebene Kreisobjekt k ist (Rückgabewert = -1), 
+	 * größer (Rückgabewert = 1) oder gleich dem übergebenen Kreisobjekt k ist (Rückgabewert = 0)
+	 * 
+	 * @param q - das zu vergleichende Objekt
+	 * @return -1 falls das Objekt kleiner als das übergebene Objekt k ist
+	 *  		0 falls das Objekt gleich dem übergebenen Objekt k ist
+	 *  		1 falls das Objekt größer als das übergebene Objekt k ist
+	 */
+	public int compareTo(Quadrat q) {
+		int ret = -2;
+		if (this.getSeiteA() < q.getSeiteA())
+			ret = -1;
+		if (this.getSeiteA() == q.getSeiteA())
+			ret = 0;
+		if (this.getSeiteA() > q.getSeiteA())
+			ret = 1;
+		return ret;
+	}
+	
+	public String toString() {
+		String ret = "a = " + this.getSeiteA() + ", b = " + this.getSeiteB() + ", U = " + this.getUmfang() + ", F = " + this.getFlaeche();	
+		return ret;
+	}
+
+}

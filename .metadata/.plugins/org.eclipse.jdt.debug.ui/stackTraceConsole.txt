@@ -1,0 +1,7 @@
+for (int stelle = num.length()-1; stelle >= 0; stelle--) {
+				ret += getDigit(num.charAt(stelle)) * Math.pow(basis, stelle);
+				System.out.print(getDigit(num.charAt(stelle)) * Math.pow(basis, stelle) + "\t");
+				if (getDigit(num.charAt(stelle)) >= basis) {
+					ret = -1;
+					stelle = -1;
+				}

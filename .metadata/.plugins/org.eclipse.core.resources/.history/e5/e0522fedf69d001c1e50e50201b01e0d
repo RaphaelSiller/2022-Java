@@ -1,0 +1,66 @@
+
+public class Kreis {
+	double radius, umfang, flaeche;
+
+	/**
+	 * Liefert die Fläche des Kreises zurück
+	 * @return die Fläche des Kreises
+	 */
+	public double getFlaeche() {
+		return flaeche;
+	}
+
+	/**
+	 * Liefert den Radius des Kreises zurück
+	 * @return den Radius des Kreises
+	 */
+	public double getRadius() {
+		return radius;
+	}
+
+	/**
+	 * Setzt den Radius und berechnet Umfang und Fläche
+	 * @param radius, welcher gesetzt werden soll
+	 */
+	public void setRadius(double radius) {
+		this.radius = radius;
+		this.umfang = 2 * Math.PI * radius;
+		this.flaeche = Math.PI * Math.pow(radius, 2);
+	}
+
+	/**
+	 * Setzt den Umfang und berechnet Radius und Fläche
+	 * @param umfang, welcher gesetzt werden soll
+	 */
+	public void setUmfang(double umfang) {
+		this.umfang = umfang;
+		this.radius = umfang / (2 * Math.PI);
+		this.flaeche = Math.PI * Math.pow(radius, 2);
+	}
+
+	/**
+	 * @return the umfang
+	 */
+	public double getUmfang() {
+		return umfang;
+	}
+
+	/**
+	 * Setzt die Fläche und berechnet Umfang und Radius
+	 * @param flaeche, welche gesetzt werden soll
+	 */
+	public void setFlaeche(double flaeche) {
+		this.flaeche = flaeche;
+		this.radius = Math.sqrt(flaeche / Math.PI);
+		this.umfang = 2 * Math.PI * radius;
+	}
+
+	/**
+	 * Gibt die Stringentsprechung des Kreises zurück.
+	 */
+	public String toString() {
+		String ret = ("r=" + this.getRadius() + ",U=" + this.getUmfang() + ",F=" + this.flaeche);
+		return ret;
+	}
+	
+}

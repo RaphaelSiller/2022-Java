@@ -1,0 +1,72 @@
+
+public class Quadrat {
+	double SeiteA;
+
+	/** 
+	 * Liefert die Länge von SeiteA
+	 * @return the seiteA
+	 */
+	public double getSeiteA() {
+		return SeiteA;
+	}
+
+	/** 
+	 * Setzt die Länge von SeiteA
+	 * @param seiteA - welche gesetzt werden soll
+	 */
+	public void setSeiteA(double seiteA) {
+		SeiteA = seiteA;
+	}
+	
+	/** 
+	 * Liefert die Länge von SeiteB
+	 * @return SeiteB
+	 */
+	public double getSeiteB() {
+		return SeiteA;
+	}
+
+	/** 
+	 * Setzt die Länge von SeiteB
+	 * @param - welche gesetzt werden soll
+	 */
+	public void setSeiteB(double SeiteB) {
+		if(SeiteB>0)
+			this.SeiteA = SeiteB;
+	}
+	
+	/** 
+	 * Liefert den Umfang des Quadrats
+	 * @return Umfang
+	 */
+	public double getUmfang() {
+		return SeiteA * 4;
+	}
+
+	/** 
+	 * Setzt den Umfang des Quadrats
+	 * @param Umfang - welcher gesetzt werden soll
+	 */
+	public void setUmfang(double Umfang) {
+		if(Umfang>0)
+			this.SeiteA = Umfang * 0.25;
+	}
+	
+	/** 
+	 * Liefert die Flaeche des Quadrats
+	 * @return Flaeche
+	 */
+	public double getFlaeche() {
+		return Math.sqrt(SeiteA);
+	}
+
+	/** 
+	 * Setzt die Flaeche des Quadrats
+	 * @param Flaeche - welcher gesetzt werden soll
+	 */
+	public void setFlaeche(double Flaeche) {
+		if(Flaeche>0)
+			this.SeiteA = SeiteA*SeiteA;
+	}
+
+}

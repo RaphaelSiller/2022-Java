@@ -1,0 +1,40 @@
+
+public class Quadrat {
+	double SeiteA;
+
+	/** 
+	 * Liefert die Länge von SeiteA
+	 * @return the seiteA
+	 */
+	public double getSeiteA() {
+		return SeiteA;
+	}
+
+	/** 
+	 * Setzt die Länge von SeiteA
+	 * @param seiteA - welcher gesetzt werden soll
+	 */
+	public void setSeiteA(double seiteA) {
+		SeiteA = seiteA;
+	}
+	
+	/** 
+	 * Liefert die Länge von SeiteB
+	 * @return the SeiteB
+	 */
+	public double getSeiteB() {
+		return SeiteA;
+	}
+
+	/** 
+	 * Setzt die Länge von SeiteB
+	 * @param - welcher gesetzt werden soll
+	 */
+	public void setSeiteB(double SeiteB) {
+		this.SeiteA = SeiteB;
+	}
+	
+	
+	
+
+}

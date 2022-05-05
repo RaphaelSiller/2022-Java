@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename local variable &apos;ret&apos; in &apos;ArrayMethoden.delDoppelte(...)&apos; to &apos;aClone&apos;&#x0D;&#x0A;- Original project: &apos;UE07Arrays&apos;&#x0D;&#x0A;- Original element: &apos;ArrayMethoden.delDoppelte(int[]).ret&apos;&#x0D;&#x0A;- Renamed element: &apos;ret&apos;&#x0D;&#x0A;- Update references to refactored element" description="Rename local variable &apos;ret&apos;" id="org.eclipse.jdt.ui.rename.local.variable" input="/src&lt;{ArrayMethoden.java[ArrayMethoden~delDoppelte~\[I@ret!5428!5449!5434!5436!\[I!0!false" name="aClone" references="true" stamp="1643624663898" version="1.0"/>
+</session>

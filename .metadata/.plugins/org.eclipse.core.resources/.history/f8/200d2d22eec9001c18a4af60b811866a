@@ -1,0 +1,10 @@
+package TeamArbeitSongliste;
+
+public class SonglisteTestprogramm {
+
+	public void main(String[] args) {
+		Songliste.lesenSongs();
+
+	}
+
+}
