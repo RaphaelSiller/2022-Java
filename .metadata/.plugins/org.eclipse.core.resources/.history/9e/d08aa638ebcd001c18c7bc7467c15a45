@@ -1,0 +1,27 @@
+package jumpingBalls;
+
+public class JumpingBallsHauptprogramm {
+
+	
+	/** 
+	 * Statische Membervariable, welche sich in einem Array die zu bewegenden Bälle
+	 * merkt. Diese Variable darf nicht als lokale Variable innerhalb der paint-Methode
+	 * definiert werden, weil sie ansonsten nach jedem Aufruf der Methode zerstört 
+	 * würde. Da aber die einzelnen Ballobjekte nach dem Ende der Methode und beim
+	 * nächten Auruf der paint-Methode noch leben müssen, werden diese in einer
+	 * statischen Membervariable der Klasse Applet abgelegt, die auch dann noch
+	 * existiert und ihre Inhalte behält, wenn ein Aufruf der paint-Methode fertig 
+	 * abgearbeitet wurde 
+	 */
+	private static Ball[] ball = null;
+	/**
+	 * Statische Konstante, welche sich die Anzahl der zu bewegenden Bälle merkt
+	 */
+	private static final int ANZAHL_BAELLE = (int)Math.pow(10, 1);
+	
+	public static void main(String[] args) {
+		jumpingBalls = new JumpingBalls();
+		
+	}
+
+}

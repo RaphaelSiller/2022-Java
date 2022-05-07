@@ -1,0 +1,15 @@
+package CosSinFenster;
+
+import javax.swing.JFrame;
+
+public class CosSinFenster extends JFrame {
+		
+	public CosSinFenster(String titel, int width, int height) {
+		this.setTitle(titel);
+		this.setLocation(10,10);
+		this.setSize(width, height);
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.setResizable(false);
+		
+	}	
+}

@@ -1,0 +1,12 @@
+package CosSinFenster;
+
+import javax.swing.JFrame;
+
+public class CosSinFenster extends JFrame {
+		this.setTitle("Jumping Balls");
+		this.setLocation(10,10);
+		this.setSize(400, 300);
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.setResizable(false);
+	}
+}

@@ -93,7 +93,9 @@ public class Person {
 	 * 		ID: vorname nachname w = isWeiblich m = mutter.getName() v = vater.getName()
 	 */
 	public String toString() {
-		return ID + ": " + vorname + " " + nachname + " w = " + isWeiblich + " m = " + mutter.getName() + " v = " + vater.getName();
+		return ID + ": " + vorname + " " + nachname + " w = " + isWeiblich + 
+				" m = " + ((this.mutter != null) ? this.mutter.getName() : "") + 
+				" v = " + ((this.vater != null) ? this.vater.getName(): "");
 	}
 
 	
@@ -147,9 +149,17 @@ public class Person {
 		
 		return eltern;
 	}
+	/**
+	 * Gibt Klone von allen vier Groﬂeltern falls vorhanden zurueck
+	 * @return index [0][0] = Grossvater  vaeterlicherseits
+	 * 		   index [0][1] = Grossmutter vaeterlicherseits
+	 * 		   index [1][0] = Grossvater  mutterlicherseits
+	 * 		   index [1][1] = Grossmutter mutterlicherseits
+	 */
 	public Person[][] getGrossEltern() {
 		//TODO an GrossEltern anpassen
-		Person grossEltern[][] = new Person[2][];
+		Person grossEltern[][] = new Person[2][2];
+		grossEltern[0][0] = new Person("placeholder", "placeholder", true);
 		if(this.getVater() != null)
 			grossEltern[0] = this.getVater().getEltern();
 		else
@@ -163,5 +173,14 @@ public class Person {
 		return grossEltern;
 	}
 	
+	public String getListe() {
+		String vorfahren = "";
+		
+		vorfahren = this.toString()  + 
+		((this.mutter != null) ? ("\n" + this.mutter.getListe()) : "") + 
+		((this.vater != null) ? ("\n" + this.vater.getListe()) : "");
+		
+		return vorfahren;
+	}
 	
 }
