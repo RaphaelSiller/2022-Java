@@ -6,22 +6,23 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Arrays;
+
+import javax.swing.plaf.basic.BasicInternalFrameTitlePane.MaximizeAction;
 
 
 public class Songliste {
 	private Song[] songs;
 	private int nummerAktueller; //Nummer des aktuellen Songs im Array
 	private int anzahl;	//der geladenen Programme
-	private static int DEFAULT_MAXANZAHL = 1000; //Falls anzahl inkorrekt ist
+	private static final int DEFAULT_MAXANZAHL = 1000; //Falls anzahl inkorrekt ist
 	private String pfad = "D:\\Songliste.csv"; //zu der Importierten Datei
 	
-	Songliste(int maxAnzahl) {
-		DEFAULT_MAXANZAHL = maxAnzahl;
+	Songliste() {
 		songs = new Song[DEFAULT_MAXANZAHL];
 		anzahl = 0;
 		nummerAktueller = -1;
 	}
-	
 	/**
 	 * Importiert Songs aus einer .csv Datei. Der Pfad kann mit setPfad festgelegt werden
 	 */

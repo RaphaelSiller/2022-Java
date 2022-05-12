@@ -1,6 +1,6 @@
 package TeamArbeitSongliste;
 
-public class Song implements Comparable<Song> {
+public class Song {
 	private String titel = "";
 	private String interpret = "";
 	private String album = "";
@@ -9,17 +9,6 @@ public class Song implements Comparable<Song> {
 	public Song() {
 		
 	}
-	public Song(String tags) {
-		this.setSong(tags);
-	}
-	
-	public Song(String titel, String interpret, String album, int erscheinungsjahr) {
-		this.titel = titel;
-		this.interpret = interpret;
-		this.album = album;
-		this.erscheinungsjahr = erscheinungsjahr;
-	}
-	
 	/**
 	 * @return titel des Liedes
 	 */

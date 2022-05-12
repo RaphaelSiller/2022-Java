@@ -16,7 +16,6 @@ public class Songliste {
 	private String pfad = "D:\\Songliste.csv"; //zu der Importierten Datei
 	
 	Songliste(int maxAnzahl) {
-		DEFAULT_MAXANZAHL = maxAnzahl;
 		songs = new Song[DEFAULT_MAXANZAHL];
 		anzahl = 0;
 		nummerAktueller = -1;

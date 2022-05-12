@@ -31,7 +31,7 @@ import javax.swing.JFrame;
 		g.drawLine(umrechnungX(0), umrechnungY(WELT_Y0), umrechnungX(0), umrechnungY(WELT_Y1)); //Y-Achse
 		for (double i = WELT_X0; i < WELT_X1; i+=0.01) {
 			g.drawLine(umrechnungX(i), umrechnungY(Math.sin(i)), umrechnungX(i+0.01), umrechnungY(Math.sin(i+0.01))); //Sinuskurve
-			g.drawLine(umrechnungX(i), umrechnungY(Math.cos(i)), umrechnungX(i+0.01), umrechnungY(Math.cos(i+0.01))); //Cosinuskurve
+			g.drawLine(umrechnungX(i), umrechnungY(Math.cos(i)), umrechnungX(i+0.01), umrechnungY(Math.cos(i+0.01)));
 		}
     }
 	
