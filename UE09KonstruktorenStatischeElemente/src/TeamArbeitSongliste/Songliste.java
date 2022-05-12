@@ -1,16 +1,21 @@
 package TeamArbeitSongliste;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Arrays;
+
+import javax.swing.plaf.basic.BasicInternalFrameTitlePane.MaximizeAction;
 
 
 public class Songliste {
 	private Song[] songs;
 	private int nummerAktueller; //Nummer des aktuellen Songs im Array
 	private int anzahl;	//der geladenen Programme
-	private static int DEFAULT_MAXANZAHL = 1000; //Falls anzahl inkorrekt ist
+	private static final int DEFAULT_MAXANZAHL = 1000; //Falls anzahl inkorrekt ist
 	private String pfad = "D:\\Songliste.csv"; //zu der Importierten Datei
 	
 	Songliste() {
@@ -50,12 +55,76 @@ public class Songliste {
 			System.out.println("Fehler beim Schliessen der Datei");
 		}
 		System.out.println("Import fertig");
-		
-		
-		
 	}
 	
+	/**
+	 *Liefert den aktuellen Song zurück auf den der Songzeiger nummerAktueller zeigt
+	 * @return Liefert den aktuellen Song zurück auf den der Songzeiger nummerAktueller zeigt
+	 */
+	public Song getAktueller() {
+		Song aktuellerSong = songs[nummerAktueller];
+		return aktuellerSong;
+	}
 	
+	/**
+	 * Liefert den nächsten Song - falls vorhanden - zurück und erhöht den Songzeiger nummerAktueller um Eins. 
+	 * Gibt es keinen nächsten Song, wird null zurück geliefert und der Songzeiger nicht erhöht
+	 * @return naechster Song 
+	 */
+	public Song getNaechster() {
+		Song ret;
+		if(songs[nummerAktueller+1] != null) {
+			ret = songs[nummerAktueller+1];
+			nummerAktueller++;
+		} else {
+			ret = null;
+		}
+		return ret;
+	}
+	
+	/**
+	 * Liefert den vorigen Song - falls vorhanden - zurück und vermindert den Songzeiger um Eins. 
+	 * Gibt es keinen vorigen Song wird null zurück geliefert und der Songzeiger nicht vermidert
+	 * @return den vorigen Song
+	 */
+	public Song getVoriger() {
+		Song ret;
+		if(songs[nummerAktueller-1] != null && nummerAktueller > 0) {
+			ret = songs[nummerAktueller-1];
+			nummerAktueller--;
+		} else {
+			ret = null;
+		}
+		return ret;
+	}
+	
+	/**
+	 * Liefert den ersten Song in der Songliste zurück und setzt den Songzeiger auf diesen Song. Ist die Liste leer, wird null zurück geliefert
+	 * @return den ersten Song in der Liste
+	 */
+	public Song getErster() {
+		Song ret;
+		if(songs != null && songs[0] != null) {
+			ret = songs[0];
+			nummerAktueller=0;
+		} else {
+			ret = null;
+		}
+		return ret;
+	}
+	
+	/**
+	 * Liefert den letzten Song in der Songliste zurück und setzt den Songzeiger auf diesen Song. Ist die Liste leer, wird null zurück geliefert
+	 * @return den letzten Song 
+	 */
+	public Song getLetzter() {
+		Song ret;
+		if(anzahl > 0)
+			ret = songs[anzahl-1];
+		else
+			ret = null;
+		return ret;
+	}
 	
 	/**
 	 * @return Liest den Dateipfad aus
@@ -79,10 +148,10 @@ public class Songliste {
 	 * 		  -1 falls kein zu ändernder Song übergeben wurde
 	 *  	  -2 falls der aktuelle Song nicht bekannt ist
 	 */
-	int aendernAktuellen(Song s) {
-		if(s != null) {
-			if(songs[nummerAktueller] != null) {
-				songs[nummerAktueller] = s;
+	public int aendernAktuellen(Song s) {
+		if(songs[nummerAktueller] != null) {
+			if(s != null) {
+				songs[anzahl] = s;
 				return 0;
 			} else
 				return -1;
@@ -100,15 +169,95 @@ public class Songliste {
 	 *		  -1 falls kein einzutragender Song übergeben wurde
 	 *		  -2 falls die Songliste keinen Platz für einen weiteren Song hat
 	 */
-	int anfuegenNeuen(Song s) {
+	public int anfuegenNeuen(Song s) {
 		if(s != null) {
-			if(songs[nummerAktueller] != null) {
-				songs[nummerAktueller] = s;
+			if(anzahl < DEFAULT_MAXANZAHL) {
+				songs[anzahl] = s;
 				return 0;
 			} else
-				return -1;
+				return -2;
 		} else
-			return -2;
+			return -1;
+	}
+	
+	/**
+	 * Löscht den aktuellen Song aus der Liste. Dies kann nur passieren, wenn die Nummer des aktuellen Songs gesetzt ist. 
+	 * Da im Array eine Lücke entsteht, müssen alle nachfolgenden Songs um eine Stelle nach vorne geschoben werden. 
+	 * Der aktuelle Song wird jener Song der dem zu löschenden Song folgt. Ist der zu löschende Song der letzte Song in der Liste, 
+	 * so wird der aktuelle Song jener Song der vor dem zu löschenden Song vorhanden ist. Ist der zu löschende Song der einzige in der Liste, 
+	 * so wird die nummerAktueller auf -1 gesetzt. Beim Löschen wird anzahl um Eins verringert
+	 * @return 0 falls das Löschen erfolgreich durchgeführt werden konnte
+	 * 		  -1 falls der aktuelle Song noch nicht gesetzt wurde
+	 */
+	public int loeschenAktuellen() {
+		if (songs[nummerAktueller] != null)	{
+			//Wenn letzter Song
+			if(nummerAktueller == anzahl-1) {
+				songs[nummerAktueller] = null;
+				nummerAktueller--;
+			} else if(anzahl == 1) { //Wenn nur ein SOng uebrig ist
+				songs[nummerAktueller] = null;
+				nummerAktueller = -1;
+			} else { // Default
+				anzahl--;
+				for (int i = nummerAktueller; i < songs.length; i++) {
+					songs[i] = songs[i+1];
+				}
+				songs[anzahl-1] = null;
+			}
+			return 0;
+			
+		} else
+			return -1;
+	}
+	
+	/**
+	 * Löscht alle Songs aus der Liste. Setzt die Anzahl auf 0 und die Nummer des aktuellen Songs auf -1
+	 * @return 0 falls das Löschen erfolgreich war
+	 * 		  -1 falls die Liste bereits leer ist
+	 */
+	public int loeschenAlle() {
+		if(anzahl > 0) {
+			for (int i = 0; i < songs.length; i++) {
+				songs[i] = null;
+			}
+			nummerAktueller = -1;
+			return 0;
+		} else
+			return -1;
+	}
+	
+	/**
+	 * Schreibt die Songs in die Textdatei. Dabei werden die in der Datei gespeicherten Songs gelöscht.
+	 * @return 0 falls die Songs erfolgreich ein gefügt werden konnten
+	 * 		  -1 falls der Pfad nicht gesetzt wurde
+	 * 		  -2 falls die Datei nicht angelegt werden konnte
+	 */
+	public int schreibenSongs() {
+		Arrays.sort(songs);
+		
+		if(pfad != null && !pfad.isEmpty()) {
+			try {
+				BufferedWriter writer = new BufferedWriter(new FileWriter(pfad));
+				// ACHTUNG: Am Ende jeder Zeile muss eine Zeilenschaltung \n eingefügt werden
+				writer.write("Titel;Album;Interpret;Jahr\n");
+				
+				//Zeilenweises Ausgeben der einzelnen Songs
+				for (int i = 0; i < songs.length; i++) {
+					if(songs[i] != null) {
+						String output = songs[i].toString() + "\n";
+						writer.write(output);
+					}
+				}
+				writer.close();
+			} catch (IOException e) {
+				System.out.println("Datei nicht angelegt");
+				return -2;
+			}
+			return 0;
+		} else {
+			return -1;
+		}
 	}
 	
 	/**
@@ -122,8 +271,7 @@ public class Songliste {
 		BufferedReader bufferedReader = new BufferedReader(new FileReader(filepath));
 	     String input;
 	     int count = 0;
-	     while((input = bufferedReader.readLine()) != null)
-	     {
+	     while((input = bufferedReader.readLine()) != null) {
 	         count++;
 	     }
 

@@ -1,8 +1,0 @@
-package TeamArbeitSongliste;
-
-public class test {
-	public static void main() {
-		int i = 0;
-		System.out.println(i);
-	}
-}
