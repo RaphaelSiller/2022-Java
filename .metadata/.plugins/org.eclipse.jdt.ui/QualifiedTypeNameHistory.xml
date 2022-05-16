@@ -5,7 +5,6 @@
 <fullyQualifiedTypeName name="MeinZahlensystemwandler"/>
 <fullyQualifiedTypeName name="TestZahlensystemwandler"/>
 <fullyQualifiedTypeName name="MeinStringAnalysierer"/>
-<fullyQualifiedTypeName name="java.lang.Math"/>
 <fullyQualifiedTypeName name="TestScannerErweitert"/>
 <fullyQualifiedTypeName name="java.lang.Character"/>
 <fullyQualifiedTypeName name="MasterMindMethoden"/>
@@ -16,7 +15,6 @@
 <fullyQualifiedTypeName name="GameOfLife"/>
 <fullyQualifiedTypeName name="GameOfLifeMethoden"/>
 <fullyQualifiedTypeName name="java.awt.Color"/>
-<fullyQualifiedTypeName name="javax.swing.plaf.basic.BasicInternalFrameTitlePane.MaximizeAction"/>
 <fullyQualifiedTypeName name="java.lang.Integer"/>
 <fullyQualifiedTypeName name="Song"/>
 <fullyQualifiedTypeName name="java.util.GregorianCalendar"/>
@@ -44,4 +42,9 @@
 <fullyQualifiedTypeName name="java.awt.geom.Line2D.Float"/>
 <fullyQualifiedTypeName name="javax.sound.sampled.Line"/>
 <fullyQualifiedTypeName name="java.awt.Graphics2D"/>
+<fullyQualifiedTypeName name="java.lang.Math"/>
+<fullyQualifiedTypeName name="javax.swing.plaf.basic.BasicInternalFrameTitlePane.MaximizeAction"/>
+<fullyQualifiedTypeName name="java.util.Arrays"/>
+<fullyQualifiedTypeName name="TeamArbeitSongliste.Song"/>
+<fullyQualifiedTypeName name="javax.xml.bind.SchemaOutputResolver"/>
 </qualifiedTypeNameHistroy>

@@ -96,30 +96,35 @@ public class Song {
 	 */
 	public int compareTo(Song song1) {
 		int ret = 0;
-		// Kontrolle Titel
-		for (int i = 0; i < this.titel.length() && i < song1.titel.length(); i++) {
-			if (this.titel.charAt(i) != song1.titel.charAt(i)) {
-				ret = (this.titel.charAt(i) - song1.titel.charAt(i) > 0) ? 1 : -1;
-				i = this.titel.length();
+		// Kontrolle interpret
+		for (int i = 0; i < this.interpret.length() && i < song1.interpret.length(); i++) {
+			if (this.interpret.charAt(i) != song1.interpret.charAt(i)) {
+				ret = (this.interpret.charAt(i) - song1.interpret.charAt(i) > 0) ? 1 : -1;
+				i = this.interpret.length();
 			}
 		}
+		
+		
 
-		// Kontrolle interpret
+		
 		if (ret == 0) {
-			for (int i = 0; i < this.interpret.length() && i < song1.interpret.length(); i++) {
-				if (this.interpret.charAt(i) != song1.interpret.charAt(i)) {
-					ret = (this.interpret.charAt(i) - song1.interpret.charAt(i) > 0) ? 1 : -1;
-					i = this.interpret.length();
+			// Kontrolle album
+			for (int i = 0; i < this.album.length() && i < song1.album.length(); i++) {
+				if (this.album.charAt(i) != song1.album.charAt(i)) {
+					ret = (this.album.charAt(i) - song1.album.charAt(i) > 0) ? 1 : -1;
+					i = this.album.length();
 				}
 			}
-			// Kontrolle album
+			
 			if (ret == 0) {
-				for (int i = 0; i < this.album.length() && i < song1.album.length(); i++) {
-					if (this.album.charAt(i) != song1.album.charAt(i)) {
-						ret = (this.album.charAt(i) - song1.album.charAt(i) > 0) ? 1 : -1;
-						i = this.album.length();
+				// Kontrolle Titel
+				for (int i = 0; i < this.titel.length() && i < song1.titel.length(); i++) {
+					if (this.titel.charAt(i) != song1.titel.charAt(i)) {
+						ret = (this.titel.charAt(i) - song1.titel.charAt(i) > 0) ? 1 : -1;
+						i = this.titel.length();
 					}
 				}
+				
 				// Kontrolle erscheinungsjahr
 				if (ret == 0) {
 					ret = (this.erscheinungsjahr - song1.erscheinungsjahr > 0) ? 1 : -1;
