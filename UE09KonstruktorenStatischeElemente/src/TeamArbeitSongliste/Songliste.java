@@ -6,6 +6,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Arrays;
 
 
 public class Songliste {
@@ -21,7 +22,13 @@ public class Songliste {
 		anzahl = 0;
 		nummerAktueller = -1;
 	}
+	public int getNummerAktueller() {
+		return nummerAktueller;
+	}
 	
+	public int getAnzahl() {
+		return anzahl;
+	}
 	/**
 	 * Importiert Songs aus einer .csv Datei. Der Pfad kann mit setPfad festgelegt werden
 	 */
@@ -38,7 +45,7 @@ public class Songliste {
 		try {
 			reader = new BufferedReader(new FileReader(pfad));
 			try {
-				reader.readLine();
+				String throwawayString = reader.readLine();
 				for (int i = 0; i < anzahl; i++) {
 					songs[i] = new Song();
 					String tags = reader.readLine();
