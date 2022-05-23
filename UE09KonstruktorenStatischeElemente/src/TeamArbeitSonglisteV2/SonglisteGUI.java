@@ -1,186 +1,203 @@
 package TeamArbeitSonglisteV2;
 
 import javax.swing.*; // JFrame, JTextField, JButton, JLabel
+import javax.swing.filechooser.FileNameExtensionFilter;
+
 import java.awt.*; // Container
 import java.awt.event.*; // Adapter, Listener, Events
+import java.io.File;
 
-public class SonglisteGUI extends JFrame
-{
-	
+public class SonglisteGUI extends JFrame {
+
 	public boolean isDarkModeActive = false;
-	private JLabel l1 = null;
-	private JLabel l2 = null;
-	private JLabel l3 = null;
-	private JLabel l4 = null;
+	private JLabel labelTitel = null;
+	private JLabel labelInterpret = null;
+	private JLabel labelAlbum = null;
+	private JLabel labelJahr = null;
+	// private JLabel labelDarkmode = null;
+	// private JLabel labelLightmode = null;
 
-	private JTextField t1 = null;
-	private JTextField t2 = null;
-	private JTextField t3 = null;
-	private JTextField t4 = null;
+	private JTextField textfTitel = null;
+	private JTextField textfInterpret = null;
+	private JTextField textfAlbum = null;
+	private JTextField textfJahr = null;
 
-	private JButton b1 = null;
-	private JButton b2 = null;
-	private JButton b3 = null;
-	private JButton b4 = null;
-	private JButton b5 = null;
-	private JButton b6 = null;
-	private JButton b7 = null;
-	
+	private JButton buttonErster = null;
+	private JButton buttonVoriger = null;
+	private JButton buttonNaechster = null;
+	private JButton buttonLetzter = null;
+	private JButton buttonNeu = null;
+	private JButton buttonLoeschen = null;
+	private JButton buttonLoeschenAlle = null;
 
 	public SonglisteGUI(Songliste songliste) {
 		setTitle("Songliste");
 		setBounds(700, 400, 395, 255);
-
+		
+		JFileChooser fileChooser = new JFileChooser();
+		int returnValue = fileChooser.showOpenDialog(getContentPane());
+		
+		//Wenn korrekte DateiAngabe, ansonsten Defaultwert (welcher der DokumentOrdner ist
+		if (returnValue == JFileChooser.APPROVE_OPTION) {
+			File inputOutputDatei = fileChooser.getSelectedFile();
+			songliste.setPfad(inputOutputDatei.getAbsolutePath());
+		} else
+			songliste.setPfad(fileChooser.getFileSystemView().getDefaultDirectory().toString() + "\\Songliste.csv");
+		
+		songliste.lesenSongs();
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		l1 = new JLabel("Titel:"); // Label f√ºr Titel
-		l1.setBounds(10, 10, 60, 30);
-		l2 = new JLabel("Interpret:"); // Label f√ºr Intepret
-		l2.setBounds(10, 40, 60, 30);
-		l3 = new JLabel("Album:"); // Label f√ºr Album
-		l3.setBounds(10, 70, 60, 30);
-		l4 = new JLabel("Jahr:"); // Label f√ºr Jahr
-		l4.setBounds(10, 100, 60, 30);
+		labelTitel = new JLabel("Titel:"); // Label f√ºr Titel
+		labelTitel.setBounds(10, 10, 60, 30);
+		labelInterpret = new JLabel("Interpret:"); // Label f√ºr Intepret
+		labelInterpret.setBounds(10, 40, 60, 30);
+		labelAlbum = new JLabel("Album:"); // Label f√ºr Album
+		labelAlbum.setBounds(10, 70, 60, 30);
+		labelJahr = new JLabel("Jahr:"); // Label f√ºr Jahr
+		labelJahr.setBounds(10, 100, 60, 30);
 
-		t1 = new JTextField();
-		t1.setBounds(70, 15, 300, 25);
-		t2 = new JTextField();
-		t2.setBounds(70, 45, 300, 25);
-		t3 = new JTextField();
-		t3.setBounds(70, 75, 300, 25);
-		t4 = new JTextField();
-		t4.setBounds(70, 105, 60, 25);
+		textfTitel = new JTextField();
+		textfTitel.setBounds(70, 15, 300, 25);
+		textfInterpret = new JTextField();
+		textfInterpret.setBounds(70, 45, 300, 25);
+		textfAlbum = new JTextField();
+		textfAlbum.setBounds(70, 75, 300, 25);
+		textfJahr = new JTextField();
+		textfJahr.setBounds(70, 105, 60, 25);
 
-		b1 = new JButton();
-		b1.setText("Erster");
-		b1.setBounds(10, 140, 91, 35);
-		b2 = new JButton();
-		b2.setText("Voriger");
-		b2.setBounds(100, 140, 91, 35);
-		b3 = new JButton();
-		b3.setText("N√§chster");
-		b3.setBounds(190, 140, 91, 35);
-		b4 = new JButton();
-		b4.setText("Letzter");
-		b4.setBounds(280, 140, 91, 35);
-		b5 = new JButton();
-		b5.setText("Neu");
-		b5.setBounds(10, 175, 111, 35);
-		b6 = new JButton();
-		b6.setText("L√∂schen");
-		b6.setBounds(121, 175, 126, 35);
-		b7 = new JButton();
-		b7.setText("Alle l√∂schen");
-		b7.setBounds(247, 175, 124, 35);
-		JButton JButtonDarkMode = new JButton();
-    JButtonDarkMode.setBounds(340, 105, 30, 30);
-    JButtonDarkMode.addActionListener(new ActionListener() {
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			Color lightModeColor = new Color(255, 255, 255);
-			Color darkModeColor = new Color(28, 31, 34);
-			if(isDarkModeActive) {
-				JButtonDarkMode.setBackground(lightModeColor);
-				t1.setBackground(lightModeColor);
-				t1.setForeground(darkModeColor);
-				t2.setBackground(lightModeColor);
-				t2.setForeground(darkModeColor);
-				t3.setBackground(lightModeColor);
-				t3.setForeground(darkModeColor);
-				t4.setBackground(lightModeColor);
-				t4.setForeground(darkModeColor);
+		buttonErster = new JButton();
+		buttonErster.setText("Erster");
+		buttonErster.setBounds(10, 140, 91, 35);
+		buttonVoriger = new JButton();
+		buttonVoriger.setText("Voriger");
+		buttonVoriger.setBounds(100, 140, 91, 35);
+		buttonNaechster = new JButton();
+		buttonNaechster.setText("N‰chster");
+		buttonNaechster.setBounds(190, 140, 91, 35);
+		buttonLetzter = new JButton();
+		buttonLetzter.setText("Letzter");
+		buttonLetzter.setBounds(280, 140, 91, 35);
+		buttonNeu = new JButton();
+		buttonNeu.setText("Neu");
+		buttonNeu.setBounds(10, 175, 111, 35);
+		buttonLoeschen = new JButton();
+		buttonLoeschen.setText("Lˆschen");
+		buttonLoeschen.setBounds(121, 175, 126, 35);
+		buttonLoeschenAlle = new JButton();
+		buttonLoeschenAlle.setText("Alle lˆschen");
+		buttonLoeschenAlle.setBounds(247, 175, 124, 35);
+		JButton buttonDarkmode = new JButton();
 
-				b1.setBackground(lightModeColor);
-				b1.setForeground(darkModeColor);
-				b2.setBackground(lightModeColor);
-				b2.setForeground(darkModeColor);
-				b3.setBackground(lightModeColor);
-				b3.setForeground(darkModeColor);
-				b4.setBackground(lightModeColor);
-				b4.setForeground(darkModeColor);
-				b5.setBackground(lightModeColor);
-				b5.setForeground(darkModeColor);
-				b6.setBackground(lightModeColor);
-				b6.setForeground(darkModeColor);
-				b7.setBackground(lightModeColor);
-				b7.setForeground(darkModeColor);
-				
-				getContentPane().setBackground(lightModeColor);
-				l1.setForeground(darkModeColor);
-				l2.setForeground(darkModeColor);
-				l3.setForeground(darkModeColor);
-				l4.setForeground(darkModeColor);
-				
-				isDarkModeActive = false;
-			} else {
-				JButtonDarkMode.setBackground(darkModeColor);
-				t1.setBackground(darkModeColor);
-				t1.setForeground(lightModeColor);
-				t2.setBackground(darkModeColor);
-				t2.setForeground(lightModeColor);
-				t3.setBackground(darkModeColor);
-				t3.setForeground(lightModeColor);
-				t4.setBackground(darkModeColor);
-				t4.setForeground(lightModeColor);
+		buttonDarkmode.setBounds(340, 105, 30, 30);
+		buttonDarkmode.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				Color lightModeColor = new Color(255, 255, 255);
+				Color darkModeColor = new Color(28, 31, 34);
+				if (isDarkModeActive) {
+					buttonDarkmode.setBackground(lightModeColor);
+					textfTitel.setBackground(lightModeColor);
+					textfTitel.setForeground(darkModeColor);
+					textfInterpret.setBackground(lightModeColor);
+					textfInterpret.setForeground(darkModeColor);
+					textfAlbum.setBackground(lightModeColor);
+					textfAlbum.setForeground(darkModeColor);
+					textfJahr.setBackground(lightModeColor);
+					textfJahr.setForeground(darkModeColor);
 
-				b1.setBackground(darkModeColor);
-				b1.setForeground(lightModeColor);
-				b2.setBackground(darkModeColor);
-				b2.setForeground(lightModeColor);
-				b3.setBackground(darkModeColor);
-				b3.setForeground(lightModeColor);
-				b4.setBackground(darkModeColor);
-				b4.setForeground(lightModeColor);
-				b5.setBackground(darkModeColor);
-				b5.setForeground(lightModeColor);
-				b6.setBackground(darkModeColor);
-				b6.setForeground(lightModeColor);
-				b7.setBackground(darkModeColor);
-				b7.setForeground(lightModeColor);
-				
-				getContentPane().setBackground(darkModeColor);
-				l1.setForeground(lightModeColor);
-				l2.setForeground(lightModeColor);
-				l3.setForeground(lightModeColor);
-				l4.setForeground(lightModeColor);
-				
-				isDarkModeActive = true;
+					buttonErster.setBackground(lightModeColor);
+					buttonErster.setForeground(darkModeColor);
+					buttonVoriger.setBackground(lightModeColor);
+					buttonVoriger.setForeground(darkModeColor);
+					buttonNaechster.setBackground(lightModeColor);
+					buttonNaechster.setForeground(darkModeColor);
+					buttonLetzter.setBackground(lightModeColor);
+					buttonLetzter.setForeground(darkModeColor);
+					buttonNeu.setBackground(lightModeColor);
+					buttonNeu.setForeground(darkModeColor);
+					buttonLoeschen.setBackground(lightModeColor);
+					buttonLoeschen.setForeground(darkModeColor);
+					buttonLoeschenAlle.setBackground(lightModeColor);
+					buttonLoeschenAlle.setForeground(darkModeColor);
+
+					getContentPane().setBackground(lightModeColor);
+					labelTitel.setForeground(darkModeColor);
+					labelInterpret.setForeground(darkModeColor);
+					labelAlbum.setForeground(darkModeColor);
+					labelJahr.setForeground(darkModeColor);
+
+					isDarkModeActive = false;
+				} else {
+					buttonDarkmode.setBackground(darkModeColor);
+					textfTitel.setBackground(darkModeColor);
+					textfTitel.setForeground(lightModeColor);
+					textfInterpret.setBackground(darkModeColor);
+					textfInterpret.setForeground(lightModeColor);
+					textfAlbum.setBackground(darkModeColor);
+					textfAlbum.setForeground(lightModeColor);
+					textfJahr.setBackground(darkModeColor);
+					textfJahr.setForeground(lightModeColor);
+
+					buttonErster.setBackground(darkModeColor);
+					buttonErster.setForeground(lightModeColor);
+					buttonVoriger.setBackground(darkModeColor);
+					buttonVoriger.setForeground(lightModeColor);
+					buttonNaechster.setBackground(darkModeColor);
+					buttonNaechster.setForeground(lightModeColor);
+					buttonLetzter.setBackground(darkModeColor);
+					buttonLetzter.setForeground(lightModeColor);
+					buttonNeu.setBackground(darkModeColor);
+					buttonNeu.setForeground(lightModeColor);
+					buttonLoeschen.setBackground(darkModeColor);
+					buttonLoeschen.setForeground(lightModeColor);
+					buttonLoeschenAlle.setBackground(darkModeColor);
+					buttonLoeschenAlle.setForeground(lightModeColor);
+
+					getContentPane().setBackground(darkModeColor);
+					labelTitel.setForeground(lightModeColor);
+					labelInterpret.setForeground(lightModeColor);
+					labelAlbum.setForeground(lightModeColor);
+					labelJahr.setForeground(lightModeColor);
+
+					isDarkModeActive = true;
+				}
 			}
-		}
-	});
+		});
 
 		Container contentPane = // Komponenten zum Fenster f√ºgen
 				getContentPane();
 		contentPane.setLayout(null);
 		// add Label
-		contentPane.add(l1);
-		contentPane.add(l2);
-		contentPane.add(l3);
-		contentPane.add(l4);
+		contentPane.add(labelTitel);
+		contentPane.add(labelInterpret);
+		contentPane.add(labelAlbum);
+		contentPane.add(labelJahr);
 		// add TextField
-		contentPane.add(t1);
-		contentPane.add(t2);
-		contentPane.add(t3);
-		contentPane.add(t4);
+		contentPane.add(textfTitel);
+		contentPane.add(textfInterpret);
+		contentPane.add(textfAlbum);
+		contentPane.add(textfJahr);
 		// add Button
-		contentPane.add(b1);
-		contentPane.add(b2);
-		contentPane.add(b3);
-		contentPane.add(b4);
-		contentPane.add(b5);
-		contentPane.add(b6);
-		contentPane.add(b7);
-		contentPane.add(JButtonDarkMode);
+		contentPane.add(buttonErster);
+		contentPane.add(buttonVoriger);
+		contentPane.add(buttonNaechster);
+		contentPane.add(buttonLetzter);
+		contentPane.add(buttonNeu);
+		contentPane.add(buttonLoeschen);
+		contentPane.add(buttonLoeschenAlle);
+		contentPane.add(buttonDarkmode);
+		setResizable(false);
 		setVisible(true);
-		
-		//Speichert die Aenderungen ab, wenn das Fenster geschlossen wird
+	
+		// Speichert die Aenderungen ab, wenn das Fenster geschlossen wird
 		this.addWindowListener(new WindowAdapter() {
-		    public void windowClosing(WindowEvent e) {
-		    	saveChanges(songliste);
-		        songliste.schreibenSongs();
-		    }
+			public void windowClosing(WindowEvent e) {
+				saveChanges(songliste);
+				songliste.schreibenSongs();
+			}
 		});
-		
-		b1.addActionListener(new ActionListener() {
+
+		buttonErster.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				saveChanges(songliste);
 				Song aktuellerSong = songliste.getAktueller();
@@ -192,9 +209,8 @@ public class SonglisteGUI extends JFrame
 				}
 			}
 		});
-		
-		
-		b2.addActionListener(new ActionListener() {
+
+		buttonVoriger.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				saveChanges(songliste);
 				if (songliste.getNummerAktueller() < 1) {
@@ -206,8 +222,8 @@ public class SonglisteGUI extends JFrame
 			}
 		});
 
-		b3.addActionListener(new ActionListener() {
-			
+		buttonNaechster.addActionListener(new ActionListener() {
+
 			public void actionPerformed(ActionEvent e) {
 				saveChanges(songliste);
 				Song aktuellerSong;
@@ -219,7 +235,7 @@ public class SonglisteGUI extends JFrame
 			}
 		});
 
-		b4.addActionListener(new ActionListener() {
+		buttonLetzter.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				saveChanges(songliste);
 				Song aktuellerSong = songliste.getAktueller();
@@ -232,7 +248,7 @@ public class SonglisteGUI extends JFrame
 			}
 		});
 
-		b5.addActionListener(new ActionListener() {
+		buttonNeu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
 					Song aktuellerSong = null;
@@ -244,48 +260,53 @@ public class SonglisteGUI extends JFrame
 				}
 			}
 		});
-		
-		b6.addActionListener(new ActionListener() {
+
+		buttonLoeschen.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				songliste.loeschenAktuellen();
-				songAnzeigen(songliste.getAktueller());
+				if (JOptionPane.showConfirmDialog(getContentPane(), "Wirklich alle Tracks lˆschen?", "rm -rf /*.mp3",
+						JOptionPane.YES_NO_OPTION) == (JOptionPane.YES_OPTION)) {
+					songliste.loeschenAktuellen();
+					songAnzeigen(songliste.getAktueller());
+				}
 			}
 		});
-		
-		b7.addActionListener(new ActionListener() {
-			
+
+		buttonLoeschenAlle.addActionListener(new ActionListener() {
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				songliste.loeschenAlle();
-				songAnzeigen(null);
-				
+				if (JOptionPane.showConfirmDialog(getContentPane(), "Diesen Track wirklich lˆschen?", "Lˆschen",
+						JOptionPane.YES_NO_OPTION) == (JOptionPane.YES_OPTION)) {
+					songliste.loeschenAlle();
+					songAnzeigen(null);
+				}
 			}
 		});
 
 	}
-	
+
 	private void saveChanges(Songliste songliste) {
 		try {
-			Song aktuellerSong = new Song(t1.getText(), t2.getText(), t3.getText(), Integer.parseInt(t4.getText()));
+			Song aktuellerSong = new Song(textfTitel.getText(), textfInterpret.getText(), textfAlbum.getText(),
+					Integer.parseInt(textfJahr.getText()));
 			songliste.aendernAktuellen(aktuellerSong);
 		} catch (NumberFormatException e) {
-			t4.setText("Muss eine Ganzzahl sein!");
+			textfJahr.setText("Muss eine Ganzzahl sein!");
+			JOptionPane.showMessageDialog(getContentPane(), "Nur Ganzzahl sind g¸ltig; ƒnderung nicht gespeichert");
 		}
-		
-		
 	}
-	
+
 	public void songAnzeigen(Song s) {
-		if(s != null) {
-			t1.setText(s.getTitel());
-			t2.setText(s.getInterpret());
-			t3.setText(s.getAlbum());
-			t4.setText(String.valueOf(s.getErscheinungsjahr()));
+		if (s != null) {
+			textfTitel.setText(s.getTitel());
+			textfInterpret.setText(s.getInterpret());
+			textfAlbum.setText(s.getAlbum());
+			textfJahr.setText(String.valueOf(s.getErscheinungsjahr()));
 		} else {
-			t1.setText("");
-			t2.setText("");
-			t3.setText("");
-			t4.setText("");
+			textfTitel.setText("");
+			textfInterpret.setText("");
+			textfAlbum.setText("");
+			textfJahr.setText("");
 		}
 	}
 }

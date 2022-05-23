@@ -14,7 +14,7 @@ public class Songliste
 	private int nummerAktueller; // Nummer des aktuellen Songs im Array
 	private int anzahl; // der geladenen Programme
 	private static int DEFAULT_MAXANZAHL = 1000; // Falls anzahl inkorrekt ist
-	private String pfad = "D:\\Songliste.csv"; // zu der Importierten Datei
+	private String pfad = ""; // zu der Importierten Datei
 
 	Songliste(int maxAnzahl) {
 		DEFAULT_MAXANZAHL = maxAnzahl;

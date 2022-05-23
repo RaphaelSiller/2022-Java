@@ -8,8 +8,8 @@ public class SonglisteHauptprogramm
 		SonglisteGUI gui = new SonglisteGUI(songliste);
 		Song aktuellerSong = null;
 //		songliste.setPfad("C:\\Users\\unico\\Info\\Work\\TeamArbeitSongliste\\src\\TeamArbeitSongliste\\tracklist.csv");
-		songliste.setPfad("D:\\Songliste.csv");
-		songliste.lesenSongs();
+//		songliste.setPfad("D:\\Songliste.csv");
+//		songliste.lesenSongs();
 		aktuellerSong = songliste.getAktueller();
 		gui.songAnzeigen(aktuellerSong);
 		
