@@ -1,9 +1,0 @@
-package TeamArbeitSonglisteV2;
-
-import javax.swing.JFrame;
-
-public class PfadSetzer extends JFrame {
-	public PfadSetzer () {
-		setBounds(700, 400, 395, 255);
-	}
-}

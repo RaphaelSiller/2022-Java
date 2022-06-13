@@ -338,7 +338,7 @@ public class SonglisteGUI extends JFrame
 					Integer.parseInt(textfJahr.getText()));
 			songliste.aendernAktuellen(aktuellerSong);
 		} catch (NumberFormatException e) {
-			textfJahr.setText("Muss eine Ganzzahl sein!");
+//			textfJahr.setText("Muss eine Ganzzahl sein!");
 			JOptionPane.showMessageDialog(getContentPane(), "Nur Ganzzahl sind gueltig; Aenderung nicht gespeichert");
 		}
 	}

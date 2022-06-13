@@ -1,7 +1,0 @@
-package TeamArbeitSonglisteV2;
-
-import javax.swing.JFrame;
-
-public class PfadSetzen extends JFrame {
-	public PfadSetzen
-}

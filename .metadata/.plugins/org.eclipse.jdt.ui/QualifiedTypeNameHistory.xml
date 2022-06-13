@@ -1,16 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="java.lang.Character.Subset"/>
-<fullyQualifiedTypeName name="java.lang.String"/>
-<fullyQualifiedTypeName name="MeinZahlensystemwandler"/>
-<fullyQualifiedTypeName name="TestZahlensystemwandler"/>
-<fullyQualifiedTypeName name="MeinStringAnalysierer"/>
-<fullyQualifiedTypeName name="TestScannerErweitert"/>
-<fullyQualifiedTypeName name="java.lang.Character"/>
-<fullyQualifiedTypeName name="MasterMindMethoden"/>
-<fullyQualifiedTypeName name="ArrayMethoden"/>
-<fullyQualifiedTypeName name="KartentrickMethoden"/>
-<fullyQualifiedTypeName name="TestGrafikAusgabe"/>
 <fullyQualifiedTypeName name="Test"/>
 <fullyQualifiedTypeName name="GameOfLife"/>
 <fullyQualifiedTypeName name="GameOfLifeMethoden"/>
@@ -30,9 +19,7 @@
 <fullyQualifiedTypeName name="CosSinFenster.CosSinFenster"/>
 <fullyQualifiedTypeName name="java.awt.geom.Line2D"/>
 <fullyQualifiedTypeName name="java.awt.geom.Line2D.Double"/>
-<fullyQualifiedTypeName name="java.awt.Container"/>
 <fullyQualifiedTypeName name="java.awt.Graphics"/>
-<fullyQualifiedTypeName name="javax.swing.JPanel"/>
 <fullyQualifiedTypeName name="java.awt.geom.Line2D.Float"/>
 <fullyQualifiedTypeName name="javax.sound.sampled.Line"/>
 <fullyQualifiedTypeName name="java.awt.Graphics2D"/>
@@ -44,15 +31,33 @@
 <fullyQualifiedTypeName name="java.awt.peer.LightweightPeer"/>
 <fullyQualifiedTypeName name="javax.swing.JButton"/>
 <fullyQualifiedTypeName name="java.awt.Font"/>
-<fullyQualifiedTypeName name="java.awt.Color"/>
 <fullyQualifiedTypeName name="javax.swing.ImageIcon"/>
 <fullyQualifiedTypeName name="TeamArbeitSonglisteV2.Song"/>
-<fullyQualifiedTypeName name="java.lang.Integer"/>
-<fullyQualifiedTypeName name="java.lang.NumberFormatException"/>
 <fullyQualifiedTypeName name="java.awt.event.ActionListener"/>
 <fullyQualifiedTypeName name="javax.swing.JFrame"/>
 <fullyQualifiedTypeName name="TeamArbeitSonglisteV2.PfadSetzer"/>
 <fullyQualifiedTypeName name="javax.swing.JFileChooser"/>
 <fullyQualifiedTypeName name="javax.swing.filechooser.FileNameExtensionFilter"/>
 <fullyQualifiedTypeName name="java.io.File"/>
+<fullyQualifiedTypeName name="java.lang.Integer"/>
+<fullyQualifiedTypeName name="java.lang.NumberFormatException"/>
+<fullyQualifiedTypeName name="java.util.Vector"/>
+<fullyQualifiedTypeName name="fahrzeugverwaltung.Fahrzeug"/>
+<fullyQualifiedTypeName name="fahrzeugverwaltung.Auto"/>
+<fullyQualifiedTypeName name="java.lang.ArrayIndexOutOfBoundsException"/>
+<fullyQualifiedTypeName name="fahrzeugverwaltung.TestScannerErweitert"/>
+<fullyQualifiedTypeName name="fahrzeugverwaltung.fahrzeugverwaltungTest"/>
+<fullyQualifiedTypeName name="fahrzeugverwaltung.Fahrzeugverwaltung"/>
+<fullyQualifiedTypeName name="javax.swing.JCheckBox"/>
+<fullyQualifiedTypeName name="javax.swing.JComponent"/>
+<fullyQualifiedTypeName name="javax.swing.JPanel"/>
+<fullyQualifiedTypeName name="java.awt.Container"/>
+<fullyQualifiedTypeName name="geometrischeFiguren.GeometrischeFigurenGUI"/>
+<fullyQualifiedTypeName name="geometrischeFiguren.Ellipse"/>
+<fullyQualifiedTypeName name="geometrischeFiguren.Kreis"/>
+<fullyQualifiedTypeName name="java.awt.Color"/>
+<fullyQualifiedTypeName name="FressenUndGefressenWerden.Mauer"/>
+<fullyQualifiedTypeName name="FressenUndGefressenWerden.UnbeweglichesObjekt"/>
+<fullyQualifiedTypeName name="FressenUndGefressenWerden.BeweglichesGutesObjekt"/>
+<fullyQualifiedTypeName name="FressenUndGefressenWerden.Sandwich"/>
 </qualifiedTypeNameHistroy>
