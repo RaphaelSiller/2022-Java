@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="WorkbenchPreferenceDialogSettings">
-		<item value="9" key="DIALOG_X_ORIGIN"/>
-		<item value="9" key="DIALOG_Y_ORIGIN"/>
+		<item key="DIALOG_X_ORIGIN" value="9"/>
+		<item key="DIALOG_Y_ORIGIN" value="9"/>
 	</section>
 	<section name="org.eclipse.ui.preferences.keysPreferencePage">
-		<item value="true" key="actionSetFilter"/>
-		<item value="true" key="uncategorizedFilter"/>
-		<item value="true" key="internalFilter"/>
+		<item key="actionSetFilter" value="true"/>
+		<item key="uncategorizedFilter" value="true"/>
+		<item key="internalFilter" value="true"/>
 	</section>
 	<section name="EditorSelectionDialog">
 	</section>
 	<section name="org.eclipse.ui.internal.QuickAccess">
-		<item value="250" key="dialogHeight"/>
-		<item value="350" key="dialogWidth"/>
+		<item key="dialogHeight" value="250"/>
+		<item key="dialogWidth" value="350"/>
 		<list key="textEntries">
 		</list>
 		<list key="orderedElements">
@@ -24,12 +24,16 @@
 		</list>
 	</section>
 	<section name="InstallationDialogSettings">
-		<item value="800" key="DIALOG_WIDTH"/>
-		<item value="1|Ubuntu|11.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
-		<item value="780" key="DIALOG_HEIGHT"/>
-		<item value="-17" key="DIALOG_X_ORIGIN"/>
-		<item value="-154" key="DIALOG_Y_ORIGIN"/>
+		<item key="DIALOG_WIDTH" value="800"/>
+		<item key="DIALOG_FONT_NAME" value="1|Ubuntu|11.0|0|GTK|1|"/>
+		<item key="DIALOG_HEIGHT" value="780"/>
+		<item key="DIALOG_X_ORIGIN" value="-17"/>
+		<item key="DIALOG_Y_ORIGIN" value="-154"/>
 	</section>
 	<section name="ImportExportAction">
+		<item key="ImportExportPage.STORE_SELECTED_IMPORT_WIZARD_ID" value="org.eclipse.egit.ui.internal.clone.GitCloneWizard"/>
+		<list key="ImportExportPage.STORE_EXPANDED_IMPORT_CATEGORIES">
+			<item value="org.eclipse.egit.ui.internal.clone.gitclonecategory"/>
+		</list>
 	</section>
 </section>
